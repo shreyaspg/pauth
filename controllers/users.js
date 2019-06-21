@@ -1,0 +1,11 @@
+module.exports = {
+  signUp: async (req, res, next) => {
+    console.log("Userscontroller.signUp() called");
+  },
+  signIn: async (req, res, next) => {
+    console.log("Userscontroller.signIn() called");
+  },
+  secret: async (req, res, next) => {
+    console.log("Userscontroller.secret() called");
+  }
+};
