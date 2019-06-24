@@ -2,6 +2,13 @@ const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const port = process.env.PORT || 3000;
+const mongoose = require("mongoose");
+
+mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://localhost/APIAuthentication", {
+  useNewUrlParser: true
+});
+// Initialize App
 const app = express();
 
 // MiddleWares
