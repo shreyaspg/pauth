@@ -19,8 +19,7 @@ module.exports = {
     // req.value.body
     // console.log("req.value.body", req.value.body);
     console.log("Userscontroller.signUp() called");
-    // const email = req.value.body.email;
-    // const password = req.value.body.password;
+
     const { email, password } = req.value.body;
 
     // Check for existing user
@@ -28,18 +27,23 @@ module.exports = {
     if (foundUser) {
       return res.status(403).send({ error: "User already exits" });
     }
+
+    // If not create a new User
     const newUser = new User({
       email,
       password
     });
     await newUser.save();
-    // res.json({ user: "created" });
+
     // Respond with a Token
     const token = signToken(newUser);
     res.status(200).json({ token });
   },
   signIn: async (req, res, next) => {
-    console.log("Userscontroller.signIn() called");
+    console.log("Successful login");
+    // generate token
+    const token = signToken(req.user);
+    res.status(200).json({ token });
   },
   secret: async (req, res, next) => {
     console.log("Managed to get here");
