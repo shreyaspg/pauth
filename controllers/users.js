@@ -42,6 +42,6 @@ module.exports = {
     console.log("Userscontroller.signIn() called");
   },
   secret: async (req, res, next) => {
-    console.log("Userscontroller.secret() called");
+    console.log("Managed to get here");
   }
 };
